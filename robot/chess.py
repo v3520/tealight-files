@@ -8,5 +8,6 @@ from tealight.robot import (move,
 
 # Add your code here
 
-for n in range(0,35):
+for n in range(0,50):
   move()
+  
