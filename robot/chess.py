@@ -28,4 +28,4 @@ for n in range(0, 4):
   for n in range(0,4):
     move()
   
-  turn(2)
+  turn(-1)
