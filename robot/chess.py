@@ -8,4 +8,4 @@ from tealight.robot import (move,
 
 # Add your code here
 turn (1)
-move(100)
+move()
