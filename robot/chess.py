@@ -53,7 +53,7 @@ for n in range(0, 4):
   for n in range(0,32):
     move()
   
-  turn(-1)
+  turn(1)
 
   for n in range(0,4):
     move()
