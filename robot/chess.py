@@ -9,5 +9,6 @@ from tealight.robot import (move,
 # Add your code here
 
 if touch =='fruit':
-  for n in range(0, 32)
+
+for n in range(0, 32)
   move()
