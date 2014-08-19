@@ -8,10 +8,5 @@ from tealight.robot import (move,
 
 # Add your code here
 
-dir = 1
-turn(dir)
-dir = -dir
-turn(dir)
-
-for n in range(0,3):
+for n in range(0,35):
   move()
