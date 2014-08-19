@@ -2,7 +2,7 @@ from tealight.logo import (move,
                            turn, 
                            color)
 
-colors = ["red", "yellow", "purple"]
+colors = ["orange", "yellow", "purple"]
 
 for i in range(0,100):
   move(i)
