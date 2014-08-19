@@ -1,12 +1,12 @@
 from tealight.logo import move, turn
 
-def spiral(size):
+def colouredsquare(size):
   
   if size > 50:
     return
   
   move(size)
   turn(90)
-  spiral(size + 1)
+  colouredsquare(size + 1)
   
-spiral(0)
+colouredsquare(0)
