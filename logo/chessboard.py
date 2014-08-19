@@ -5,10 +5,12 @@ def colouredsquare(size):
   if size > 50:
     return
   
-  move(size)
-  turn(90)
+  square(size)
   colouredsquare(size + 1)
-  
-colouredsquare(0)
+ 
+def square(side):
+  for i in range(0,4):
+    move(side)
+    turn(90)
 
-def 
+colouredsquare(0)
