@@ -8,24 +8,6 @@ from tealight.robot import (move,
 
 # Add your code here
 
-for n in range(0, 32):
+if touch =='fruit':
+  for n in range(0,32)
   move()
-  
-  
-turn (1)
-
-for n in range(0, 32):
-  move()
-  
-
-turn (1)
-
-for n in range(0, 32):
-  move()
-
-turn (1)
-
-for n in range(0, 32):
-  move()
-  
-  
