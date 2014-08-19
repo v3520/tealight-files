@@ -12,5 +12,5 @@ if left_side() == 'fruit':
 
   distance = 32
 
-for n in range(0, distance)
+for n in range(0, distance):
   move()
