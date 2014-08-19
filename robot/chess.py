@@ -8,9 +8,8 @@ from tealight.robot import (move,
 
 # Add your code here
 
-if right_side() == 'fruit':
+dir = 1
 
-  distance = 32
+turn(dir)
 
-for n in range(0, distance):
-  move()
+dir = -dir
