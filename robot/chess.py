@@ -8,7 +8,7 @@ from tealight.robot import (move,
 
 # Add your code here
 
-if left_side() == 'fruit':
+if right_side() == 'fruit':
 
   distance = 32
 
