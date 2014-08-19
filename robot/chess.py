@@ -8,9 +8,9 @@ from tealight.robot import (move,
 
 # Add your code here
 
-if left_side() = 'fruit':
+if left_side() == 'fruit':
 
-distance = 32
+  distance = 32
 
 for n in range(0, distance)
-move()
+  move()
