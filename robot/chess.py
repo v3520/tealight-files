@@ -8,7 +8,7 @@ from tealight.robot import (move,
 
 # Add your code here
 
-if touch() =='fruit':
-
+if left_side() == 'fruit':
+  
 for n in range(0, 32)
-  move()
+move()
