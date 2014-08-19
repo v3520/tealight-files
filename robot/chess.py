@@ -11,21 +11,21 @@ from tealight.robot import (move,
 for n in range(0, 4):
 
   for n in range(0,32):
-  move()
+    move()
   
   turn(1)
 
   for n in range(0, 4):
-  move()
+    move()
   
   turn(1)
 
   for n in range(0,32):
-  move()
+    move()
   
   turn(3)
 
   for n in range(0,4):
-  move()
+    move()
   
   turn(2)
