@@ -10,3 +10,5 @@ def colouredsquare(size):
   colouredsquare(size + 1)
   
 colouredsquare(0)
+
+def 
