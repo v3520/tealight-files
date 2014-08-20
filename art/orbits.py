@@ -2,8 +2,8 @@ from tealight.art import (color, line, spot, circle, box, image, text, backgroun
 
 x = 300
 y = 200
-vx = 20
-vy = 30
+vx = 0
+vy = 0
 ax = 0
 ay = 0.05
 
@@ -15,11 +15,11 @@ def handle_keydown(key):
   
 
   if key == "left":
-    ax = -power
+    ax = power
   elif key == "right":
     ax = power
   elif key == "up":
-    ay = -power
+    ay = power
   elif key == "down":
     ay = power
 
@@ -34,17 +34,17 @@ def handle_keyup(key):
 def handle_frame():
   global x,y,vx,vy,ax,ay
   
-  color("white")
+  color("purple")
   
-  spot(x,y,8)
+  spot(x,y,10)
   vx = vx + ax
   vy = vy + ay
   
   x = x + vx
   y = y + vy
   
-  color("blue")
+  color("orange")
   
-  spot(x,y,8)
+  spot(x,y,10)
   
   
