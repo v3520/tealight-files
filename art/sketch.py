@@ -14,7 +14,7 @@ def handle_mousedown(x,y):
 def handle_mousemove(x,y,button):
   global lastx, lasty
   
-  if button == "left":
+  if button == "centre":
     line(lastx, lasty, x, y)
     lastx = x
     lasty = y
