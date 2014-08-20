@@ -11,5 +11,5 @@ for i in range(0,width):
     if i % 4 == 0:
       image(x + i * 60, y + j * 60, "misc/YellowFlower.png")
     else:
-      image(x + i * 30, y + j * 30, "misc/Clover.png")
+      image(x + i * 60, y + j * 60, "misc/Clover.png")
      
