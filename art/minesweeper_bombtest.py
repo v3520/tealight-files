@@ -74,7 +74,7 @@ def DrawNumber(x,y,NumberOfMines):
   y += 0.25
   text(StartingX + SquareSize * x,StartingY + SquareSize * y, NumberOfMines)
   
-def DrawFlag
+def DrawFlag()
   x += 0.5
   y += 0.5
   image("http://www.ezimba.com/work/140822C/ezimba16125759306700.gif")
