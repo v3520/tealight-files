@@ -161,6 +161,3 @@ BombArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 VisibleArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 PlaceBombs(NumberOfBombs)
 DrawGrid()
-
-
-
