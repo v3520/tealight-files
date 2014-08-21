@@ -1,5 +1,3 @@
-import github.davidsamueljones.art.Minesweeper
-
 from random import random, randint
 from tealight.art import (color, line, spot, circle, box, image, text, background)
 from tealight.art import (screen_width, screen_height)
@@ -12,7 +10,8 @@ StartingX = screen_width /2 - SquareSize * 5
 StartingY = 100
 OffsetX = 0
 OffsetY = 0
-
+lastx = 0
+lasty = 0
 
 BombArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 VisibleArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
@@ -32,6 +31,8 @@ def PlaceBombs(NumberOfBombs):
   
 def DrawGrid():
   global OffsetX, OffsetY
+  OffsetX = 0
+  OffsetY = 0
   for x in range(0,HLimit):
     for y in range(0,WLimit):
       if VisibleArray[x][y]==0:
@@ -41,8 +42,8 @@ def DrawGrid():
         if BombArray[x][y] > 0:
           BombNumber = BombArray[x][y]
           DrawNumber(x,y,BombNumber)
-      if BombArray[x][y] == -1:
-        DrawMine(x,y)
+        elif BombArray[x][y] == -1:
+          DrawMine(x,y)
       OffsetY += SquareSize
     OffsetX += SquareSize
     OffsetY = 0
@@ -84,8 +85,25 @@ def BombCheck(x,y):
   
   BombArray[x][y]=BombCount
   
+def handle_mousedown(Mx,My, button):
+  global lastx, lasty, VisibleArray
+  
+  if button == "left":
+    Mx = Mx - StartingX
+    My = My - StartingY
+    
+    if 0 < Mx < SquareSize*WLimit: 
+      if 0 < My < SquareSize*HLimit:
+        i=Mx/SquareSize
+        j=My/SquareSize
+        print(i,j)
+        lastx = i
+        lasty = j
+        VisibleArray[lastx][lasty] = 1
+        DrawGrid()
+  
+  
+  
+
 PlaceBombs(NumberOfBombs)
-for x in range(0,HLimit):
-    for y in range(0,WLimit):
-       VisibleArray[x][y] = 1
 DrawGrid()
