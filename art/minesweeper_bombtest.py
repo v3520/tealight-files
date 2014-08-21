@@ -39,13 +39,13 @@ def DrawGrid():
         DrawCoveredSquare()
       elif VisibleArray[x][y] == 1:
         DrawUncoveredSquare()
-      elif VisibleArray[x][y] == 2:
-        DrawFlag()
         if BombArray[x][y] > 0:
           BombNumber = BombArray[x][y]
           DrawNumber(x,y,BombNumber)
         elif BombArray[x][y] == -1:
           DrawMine(x,y)
+      elif VisibleArray[x][y] == 2:
+        DrawFlag()
       OffsetY += SquareSize
     OffsetX += SquareSize
     OffsetY = 0
