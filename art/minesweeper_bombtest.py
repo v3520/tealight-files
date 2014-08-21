@@ -39,6 +39,8 @@ def DrawGrid():
         DrawCoveredSquare()
       elif VisibleArray[x][y] == 1:
         DrawUncoveredSquare()
+      elif VisibleArray[x][y] == 2:
+        DrawFlag()
         if BombArray[x][y] > 0:
           BombNumber = BombArray[x][y]
           DrawNumber(x,y,BombNumber)
@@ -72,7 +74,8 @@ def DrawNumber(x,y,NumberOfMines):
   y += 0.25
   text(StartingX + SquareSize * x,StartingY + SquareSize * y, NumberOfMines)
   
-
+def DrawFlag
+  
 def BombCheck(x,y):
   global BombArray
   BombCount = 0
@@ -102,8 +105,19 @@ def handle_mousedown(Mx,My, button):
         VisibleArray[lastx][lasty] = 1
         DrawGrid()
   
-  
-  
+  elif button == "right":
+    Mx = Mx - StartingX
+    My = My - StartingY
+    
+    if 0 < Mx < SquareSize*WLimit: 
+      if 0 < My < SquareSize*HLimit:
+        i=Mx/SquareSize
+        j=My/SquareSize
+        print(i,j)
+        lastx = i
+        lasty = j
+        VisibleArray[lastx][lasty] = 2
+        DrawGrid()
 
 PlaceBombs(NumberOfBombs)
 DrawGrid()
