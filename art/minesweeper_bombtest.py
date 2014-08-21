@@ -42,7 +42,7 @@ def DrawGrid():
           BombNumber = BombArray[x][y]
           DrawNumber(x,y,BombNumber)
       if BombArray[x][y] == -1:
-        DrawMine(x,y)
+        #DrawMine(x,y)
       OffsetY += SquareSize
     OffsetX += SquareSize
     OffsetY = 0
