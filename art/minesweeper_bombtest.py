@@ -73,6 +73,7 @@ def DrawNumber(x,y,NumberOfMines):
 
 def BombCheck(x,y):
   global BombArray
+  BombCount = 0
   
   for (i,j) in [(x-1,y-1),(x-1,y), (x-1, y+1), (x,y-1), (x, y+1), (x+1,y-1),(x+1,y), (x+1, y+1)]:
   
