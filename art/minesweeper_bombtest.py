@@ -20,6 +20,8 @@ def DrawGrid():
   global OffsetX, OffsetY
   OffsetX = 0
   OffsetY = 0
+  color("#cccccc")
+  box(StartingX - 2,StartingY - 2,SquareSize * WLimit + 4,SquareSize * HLimit +4)
   for x in range(0,HLimit):
     for y in range(0,WLimit):
       if VisibleArray[x][y]==0:
@@ -95,8 +97,11 @@ def handle_mousedown(Mx,My, button):
           if VisibleArray[lastx][lasty] == 0:
             VisibleArray[lastx][lasty] = 1
             NumberUncovered += 1
-            print NumberUncovered
-            IsBomb(lastx,lasty)
+            if BombArray[lastx][lasty] == 0:
+              FloodBoard(lastx,lasty)
+            else:
+              IsBomb(lastx,lasty)
+          print NumberUncovered
           if lost == True:
            for x in range(0,HLimit):
             for y in range(0,WLimit):
@@ -128,16 +133,17 @@ def IsBomb(x,y):
    lost = True
      
 def FloodBoard(x,y):
-  global BombArray
-  BombCount = 0
-  
+  global BombArray, VisibleArray, NumberUncovered
+
   for (i,j) in [(x-1,y-1),(x-1,y), (x-1, y+1), (x,y-1), (x, y+1), (x+1,y-1),(x+1,y), (x+1, y+1)]:
-  
     if (i >= 0 and i < WLimit and j >= 0 and j < HLimit):
-
-
-
-NumberOfBombs = 1
+      if VisibleArray[i][j] == 0 and BombArray[i][j] >= 0:
+        NumberUncovered += 1
+        VisibleArray[i][j] = 1
+        if BombArray[i][j] == 0:
+          FloodBoard(i,j)
+      
+NumberOfBombs = 15
 NumberUncovered = 0
 HLimit = 10
 WLimit = 10
