@@ -27,7 +27,8 @@ def PlaceBombs(NumberOfBombs):
       BombsPlaced += 1
   for x in range(0,HLimit):
     for y in range(0,WLimit):
-      BombCheck(x,y)
+      if BombArray[x][y] > -1
+        BombCheck(x,y)
   
 def DrawGrid():
   global OffsetX, OffsetY
