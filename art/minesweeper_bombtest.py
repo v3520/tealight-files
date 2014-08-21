@@ -71,7 +71,7 @@ def DrawNumber(x,y,NumberOfMines):
   text(StartingX + SquareSize * x,StartingY + SquareSize * y, NumberOfMines)
   
 
-def BombCheck():
+def BombCheck(x,y):
   global BombArray
   
   for (i,j) in [(x-1,y-1),(x-1,y), (x-1, y+1), (x,y-1), (x, y+1), (x+1,y-1),(x+1,y), (x+1, y+1)]:
