@@ -85,6 +85,7 @@ def BombCheck(x,y):
   BombArray[x][y]=BombCount
   
 PlaceBombs(NumberOfBombs)
-BombArray[5][5] = 2
-VisibleArray[5][5] = 1
+for x in range(0,HLimit):
+    for y in range(0,WLimit):
+       VisibleArray[x][y] = 1
 DrawGrid()
