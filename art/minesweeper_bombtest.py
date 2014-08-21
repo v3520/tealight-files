@@ -1,3 +1,3 @@
-import github.davidsamueljames.art.minesweeper
+import github.davidsamueljones.art.Minesweeper
 
 print "A new file!"
