@@ -61,10 +61,28 @@ def DrawMine(x,y, colour):
   spot(StartingX + SquareSize * x,StartingY + SquareSize * y, SquareSize/5)
 
 def DrawNumber(x,y,NumberOfMines):
-  color("red")
+  global BombArray
+  
+  if BombArray[x][y] == 1:
+    color("blue")
+  elif BombArray[x][y] == 2:
+    color("green")
+  elif BombArray[x][y] == 3:
+    color("red")
+  elif BombArray[x][y] == 4:
+    color("purple")
+  elif BombArray[x][y] == 5:
+    color("#940023")
+  elif BombArray[x][y] == 6:
+    color("black")
+  elif BombArray[x][y] == 7:
+    color("#878787")
+  elif BombArray[x][y] == 8:
+    color("#00C19B")
   x += 0.35
   y += 0.25
   text(StartingX + SquareSize * x,StartingY + SquareSize * y, NumberOfMines)
+  
   
 def DrawFlag(x,y):
   image(StartingX + SquareSize * x,StartingY + SquareSize * y,"http://www.ezimba.com/work/140822C/ezimba16125759306700.gif")
