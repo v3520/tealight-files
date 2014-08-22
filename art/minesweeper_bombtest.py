@@ -1,13 +1,13 @@
 from random import random, randint
-from tealight.art import (color, line, spot, circle, box, image, text, background)
+from tealight.art import (color, line, spot, circle, box, rectangle, font, image, text, background)
 from tealight.art import (screen_width, screen_height)
 from tealight.utils import (sleep)
 
 def PlaceBombs(NumberOfBombs):
   BombsPlaced = 0
   while BombsPlaced < NumberOfBombs:
-    x = randint(0,9)
-    y = randint(0,9)
+    x = randint(0,HLimit -1)
+    y = randint(0,WLimit -1)
     if BombArray[x][y] == 0:
       BombArray[x][y] = -1
       BombsPlaced += 1
@@ -79,14 +79,22 @@ def DrawNumber(x,y,NumberOfMines):
     color("#878787")
   elif BombArray[x][y] == 8:
     color("#00C19B")
+
   x += 0.35
   y += 0.25
+  
+  font("5000px")
   text(StartingX + SquareSize * x,StartingY + SquareSize * y, NumberOfMines)
   
-  
 def DrawFlag(x,y):
-  image(StartingX + SquareSize * x,StartingY + SquareSize * y,"http://www.ezimba.com/work/140822C/ezimba16125759306700.gif")
-
+  global SquareSize
+  DrawCoveredSquare()
+  BoxSize = SquareSize/3
+  color("black")
+  box(StartingX + SquareSize * x + SquareSize/2 - BoxSize/2,StartingY + SquareSize * y + SquareSize/2 - BoxSize/2, SquareSize/3,SquareSize/3)
+  color("red")
+  rectangle(StartingX + SquareSize * x + SquareSize/2 - BoxSize/2,StartingY + SquareSize * y + SquareSize/2 - BoxSize/2, SquareSize/3,SquareSize/3)
+  
 def BombCheck(x,y):
   global BombArray
   BombCount = 0
@@ -161,13 +169,13 @@ def FloodBoard(x,y):
         if BombArray[i][j] == 0:
           FloodBoard(i,j)
       
-NumberOfBombs = 15
+NumberOfBombs = 25
 NumberUncovered = 0
-HLimit = 10
-WLimit = 10
-SquareSize = 50
+HLimit = 20
+WLimit = HLimit
+SquareSize = 500/HLimit
 StartingX = screen_width /2 - SquareSize * WLimit/2
-StartingY = 100
+StartingY = 280
 OffsetX = 0
 OffsetY = 0
 lastx = 0
@@ -175,6 +183,8 @@ lasty = 0
 lost = False
 won = False
 
+image(StartingX,50,"http://www.ezimba.com/work/140822C/ezimba16125732408300.png")
+image(StartingX - 200,140+ SquareSize * HLimit,"http://www.ezimba.com/work/140822C/ezimba16125769303800.png")
 BombArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 VisibleArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 PlaceBombs(NumberOfBombs)
