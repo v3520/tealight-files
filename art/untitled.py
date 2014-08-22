@@ -1,5 +1,3 @@
-from github.davidsamueljones.art.Minesweeper import *
-
 from random import random, randint
 from tealight.art import (color, line, spot, circle, box, rectangle, font, image, text, background)
 from tealight.art import (screen_width, screen_height)
@@ -85,6 +83,7 @@ def DrawNumber(x,y,NumberOfMines):
   size = SquareSize /2
   fontsize = str(size)+"px Courier New Bold"
   font(fontsize)
+  x += 0.125
   text(StartingX + SquareSize * x +size/2,StartingY + SquareSize * y +size/2, NumberOfMines)
   
 def DrawFlag(x,y):
@@ -169,7 +168,7 @@ def FloodBoard(x,y):
         if BombArray[i][j] == 0:
           FloodBoard(i,j)
       
-NumberOfBombs = 20
+NumberOfBombs = 25
 HLimit = 20
 WLimit = HLimit
 SquareSize = 500/HLimit
