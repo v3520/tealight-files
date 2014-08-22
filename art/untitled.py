@@ -169,8 +169,8 @@ def FloodBoard(x,y):
         if BombArray[i][j] == 0:
           FloodBoard(i,j)
       
-NumberOfBombs = 10
-HLimit = 10
+NumberOfBombs = 20
+HLimit = 20
 WLimit = HLimit
 SquareSize = 500/HLimit
 StartingX = screen_width /2 - SquareSize * WLimit/2
