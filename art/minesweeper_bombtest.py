@@ -21,7 +21,7 @@ def DrawGrid():
   OffsetX = 0
   OffsetY = 0
   color("#cccccc")
-  box(StartingX - 2,StartingY - 2,SquareSize * WLimit + 4,SquareSize * HLimit +4)
+  box(StartingX - 2,StartingY - 2,SquareSize * WLimit + 8,SquareSize * HLimit +8)
   for x in range(0,HLimit):
     for y in range(0,WLimit):
       if VisibleArray[x][y]==0:
@@ -80,19 +80,19 @@ def DrawNumber(x,y,NumberOfMines):
   elif BombArray[x][y] == 8:
     color("#00C19B")
 
-  x += 0.35
-  y += 0.25
-  
-  font("5000px")
-  text(StartingX + SquareSize * x,StartingY + SquareSize * y, NumberOfMines)
+  size = SquareSize /2
+  fontsize = str(size)+"px Courier New Bold"
+  font(fontsize)
+  x += 0.125
+  text(StartingX + SquareSize * x +size/2,StartingY + SquareSize * y +size/2, NumberOfMines)
   
 def DrawFlag(x,y):
   global SquareSize
   DrawCoveredSquare()
   BoxSize = SquareSize/3
-  color("black")
+  color("gold")
   box(StartingX + SquareSize * x + SquareSize/2 - BoxSize/2,StartingY + SquareSize * y + SquareSize/2 - BoxSize/2, SquareSize/3,SquareSize/3)
-  color("red")
+  color("orange")
   rectangle(StartingX + SquareSize * x + SquareSize/2 - BoxSize/2,StartingY + SquareSize * y + SquareSize/2 - BoxSize/2, SquareSize/3,SquareSize/3)
   
 def BombCheck(x,y):
@@ -127,7 +127,6 @@ def handle_mousedown(Mx,My, button):
               FloodBoard(lastx,lasty)
             else:
               IsBomb(lastx,lasty)
-          print NumberUncovered
           if lost == True:
            for x in range(0,HLimit):
             for y in range(0,WLimit):
@@ -170,7 +169,6 @@ def FloodBoard(x,y):
           FloodBoard(i,j)
       
 NumberOfBombs = 25
-NumberUncovered = 0
 HLimit = 20
 WLimit = HLimit
 SquareSize = 500/HLimit
@@ -182,9 +180,10 @@ lastx = 0
 lasty = 0
 lost = False
 won = False
+NumberUncovered = 0
 
 image(StartingX,50,"http://www.ezimba.com/work/140822C/ezimba16125732408300.png")
-image(StartingX - 200,140+ SquareSize * HLimit,"http://www.ezimba.com/work/140822C/ezimba16125769303800.png")
+image(screen_width/2 - 1000,screen_height -347,"http://i.imgur.com/ofNb09J.png")
 BombArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 VisibleArray = [[0 for x in range(0,HLimit)] for y in range(0,WLimit)]
 PlaceBombs(NumberOfBombs)
